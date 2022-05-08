@@ -7,7 +7,13 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, useColorScheme, View} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  useColorScheme,
+  View,
+  Text,
+} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -27,8 +33,24 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="SignDetailScreen" component={SignDetailScreen} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+            headerTransparent: true,
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontFamily: 'fantasy',
+            },
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="SignDetailScreen"
+          component={SignDetailScreen}
+          options={({route}) => ({title: route.params.title})}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

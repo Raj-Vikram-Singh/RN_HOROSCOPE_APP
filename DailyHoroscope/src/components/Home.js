@@ -10,6 +10,7 @@ import {
   ImageBackground,
 } from 'react-native';
 import SUN_SIGN_IMAGES, {IMAGES} from '../constants/ImagesConstant';
+import _ from 'lodash';
 
 const styles = StyleSheet.create({
   container: {
@@ -35,13 +36,17 @@ const styles = StyleSheet.create({
   imgText: {
     textAlign: 'center',
     textTransform: 'capitalize',
-    paddingTop: 10,
+    paddingTop: 5,
     color: 'white',
     fontFamily: 'fantasy',
   },
+  dateRangeText: {
+    fontSize: 12,
+    color: 'orange',
+  },
   signImg: {
-    width: 90,
-    height: 90,
+    width: 100,
+    height: 100,
     borderRadius: 90 / 2,
   },
   row: {
@@ -56,7 +61,11 @@ const Home = props => {
   const {navigation} = props;
 
   const handleSignPress = async sign => {
-    navigation.navigate('SignDetailScreen', {signName: sign});
+    const title = `Welcome ${_.capitalize(sign)}`;
+    navigation.navigate('SignDetailScreen', {
+      signName: sign,
+      title: title,
+    });
   };
 
   return (
@@ -74,6 +83,9 @@ const Home = props => {
                 key={sign.id}>
                 <View style={styles.imgContainer}>
                   <Image style={styles.signImg} source={sign.src} />
+                  <Text style={[styles.imgText, styles.dateRangeText]}>
+                    {sign.date_range}
+                  </Text>
                   <Text style={styles.imgText}>{sign.name}</Text>
                 </View>
               </TouchableOpacity>
