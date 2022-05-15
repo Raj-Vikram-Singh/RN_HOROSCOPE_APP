@@ -1,4 +1,4 @@
-package com.dailyhoroscope.newarchitecture.modules;
+package com.dailyhoroscopewhatanapp.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

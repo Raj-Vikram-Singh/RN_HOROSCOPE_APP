@@ -72,7 +72,6 @@ const SignDetailScreen = props => {
     setIsLoading(true);
     try {
       const response = await getHoroscope(sign);
-      console.log(response);
       setSignDetails(response);
     } catch (e) {
       setIsErrorMsg(e);

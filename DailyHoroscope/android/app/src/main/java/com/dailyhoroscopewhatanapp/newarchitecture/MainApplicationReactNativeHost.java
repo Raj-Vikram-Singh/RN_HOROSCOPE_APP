@@ -1,4 +1,4 @@
-package com.dailyhoroscope.newarchitecture;
+package com.dailyhoroscopewhatanapp.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.dailyhoroscope.BuildConfig;
-import com.dailyhoroscope.newarchitecture.components.MainComponentsRegistry;
-import com.dailyhoroscope.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.dailyhoroscopewhatanapp.BuildConfig;
+import com.dailyhoroscopewhatanapp.newarchitecture.components.MainComponentsRegistry;
+import com.dailyhoroscopewhatanapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
