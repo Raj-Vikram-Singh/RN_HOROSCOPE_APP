@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    fontFamily: 'sans-serif',
+    color: '#66657c',
   },
 
   bannerImg: {
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#f88700',
     paddingRight: 10,
-    fontFamily: 'sans-serif',
   },
   row: {
     paddingTop: 15,
