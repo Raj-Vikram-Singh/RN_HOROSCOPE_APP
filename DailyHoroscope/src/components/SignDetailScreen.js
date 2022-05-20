@@ -6,6 +6,8 @@ import {
   Image,
   StyleSheet,
   ScrollView,
+  ImageBackground,
+  SafeAreaView,
 } from 'react-native';
 import {getHoroscope} from '../services/api';
 import _ from 'lodash';
@@ -13,8 +15,12 @@ import {IMAGES} from '../constants/ImagesConstant';
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    backgroundColor: 'white',
+    // alignItems: 'center',
+    backgroundColor: 'black',
+    flex: 1,
+  },
+  backgroundImg: {
+    opacity: 0.4,
   },
   loaderContainer: {
     display: 'flex',
@@ -36,22 +42,27 @@ const styles = StyleSheet.create({
   },
   today: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 18,
     paddingBottom: 15,
+    color: 'white',
   },
   text: {
-    fontSize: 16,
-    color: '#66657c',
+    fontSize: 18,
+    color: 'white',
   },
-
+  bannerImgContainer: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
   bannerImg: {
-    maxWidth: 400,
+    maxWidth: 415,
     maxHeight: 370,
   },
   headingText: {
     fontSize: 20,
-    color: '#f88700',
+    color: '#fdde6b',
     paddingRight: 10,
+    fontWeight: 'bold',
   },
   row: {
     paddingTop: 15,
@@ -85,38 +96,47 @@ const SignDetailScreen = props => {
 
   const renderData = () => {
     return (
-      <View style={styles.container}>
-        <Image style={styles.bannerImg} source={IMAGES[signName].src} />
-        {signDetails && (
-          <View style={styles.txtContainer}>
-            <Text style={styles.today}>Today - {signDetails.current_date}</Text>
-            <View>
-              <Text style={styles.headingText}>Your Horoscope</Text>
-              <Text style={styles.text}>{signDetails.description}</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.headingText}>Your Lucky Number: </Text>
-              <Text style={styles.text}>{signDetails.lucky_number}</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.headingText}>Your Lucky Time: </Text>
-              <Text style={styles.text}>{signDetails.lucky_time}</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.headingText}>Your Mood: </Text>
-              <Text style={styles.text}>{signDetails.mood}</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.headingText}>Your Lucky Color: </Text>
-              <Text style={styles.text}>{signDetails.color}</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.headingText}>Your Compatibility: </Text>
-              <Text style={styles.text}>{signDetails.compatibility}</Text>
-            </View>
+      <ImageBackground
+        style={styles.container}
+        source={IMAGES.constellations.src}
+        imageStyle={styles.backgroundImg}>
+        <SafeAreaView>
+          <View style={styles.bannerImgContainer}>
+            <Image style={styles.bannerImg} source={IMAGES[signName].src} />
           </View>
-        )}
-      </View>
+          {signDetails && (
+            <View style={styles.txtContainer}>
+              <Text style={styles.today}>
+                Today - {signDetails.current_date}
+              </Text>
+              <View>
+                <Text style={styles.headingText}>Your Horoscope</Text>
+                <Text style={styles.text}>{signDetails.description}</Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.headingText}>Your Lucky Number: </Text>
+                <Text style={styles.text}>{signDetails.lucky_number}</Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.headingText}>Your Lucky Time: </Text>
+                <Text style={styles.text}>{signDetails.lucky_time}</Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.headingText}>Your Mood: </Text>
+                <Text style={styles.text}>{signDetails.mood}</Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.headingText}>Your Lucky Color: </Text>
+                <Text style={styles.text}>{signDetails.color}</Text>
+              </View>
+              <View style={styles.row}>
+                <Text style={styles.headingText}>Your Compatibility: </Text>
+                <Text style={styles.text}>{signDetails.compatibility}</Text>
+              </View>
+            </View>
+          )}
+        </SafeAreaView>
+      </ImageBackground>
     );
   };
 
